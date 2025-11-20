@@ -32,7 +32,7 @@ public class editMovieViewController {
     private TextField movieGenreID;
 
     @FXML
-    private ListView<movie> movieListID;
+    private ListView<> movieListID;
 
     @FXML
     protected void onDoneButtonClick() {
