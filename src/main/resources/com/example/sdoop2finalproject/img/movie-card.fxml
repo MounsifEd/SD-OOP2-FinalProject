@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Button?>
 <VBox xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.sdoop2finalproject.Controller.MovieCardController"
+      fx:controller="com.example.sdoop2finalproject.MovieCardController"
       prefWidth="180" style="-fx-background-color: white; -fx-padding: 10; -fx-border-radius: 8; -fx-background-radius: 8;">
 
     <ImageView fx:id="posterView" fitWidth="160" fitHeight="200" preserveRatio="true" />
