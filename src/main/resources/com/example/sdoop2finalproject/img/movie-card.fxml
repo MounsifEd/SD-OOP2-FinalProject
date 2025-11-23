@@ -1,0 +1,20 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.sdoop2finalproject.Controllers.MovieCardController"
+      prefWidth="180" style="-fx-background-color: white; -fx-padding: 10; -fx-border-radius: 8; -fx-background-radius: 8;">
+
+    <ImageView fx:id="posterView" fitWidth="160" fitHeight="200" preserveRatio="true" />
+
+    <Text fx:id="movieTitle" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+    <Text fx:id="movieGenre" />
+    <Text fx:id="movieRelease" />
+
+    <Button text="View Showtimes"
+            fx:id="showtimeBtn"
+            style="-fx-background-color: blue; -fx-text-fill: white; -fx-font-weight: bold;"
+            prefWidth="160"/>
+</VBox>
