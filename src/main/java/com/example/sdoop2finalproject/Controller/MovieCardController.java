@@ -1,4 +1,4 @@
-package com.example.sdoop2finalproject.Controllers;
+package com.example.sdoop2finalproject.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
