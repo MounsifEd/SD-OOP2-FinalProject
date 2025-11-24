@@ -7,6 +7,6 @@ module com.example.sdoop2finalproject {
     exports com.example.sdoop2finalproject;
     exports com.example.sdoop2finalproject.Controllers;
     opens com.example.sdoop2finalproject.Controllers to javafx.fxml;
-    exports com.example.sdoop2finalproject.Controller;
-    opens com.example.sdoop2finalproject.Controller to javafx.fxml;
+    exports com.example.sdoop2finalproject.Models;
+    opens com.example.sdoop2finalproject.Models to javafx.fxml;
 }

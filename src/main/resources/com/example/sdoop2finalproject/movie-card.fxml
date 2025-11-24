@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!-- Author: Mounsif -->
+
+<VBox alignment="CENTER" prefWidth="180" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.MovieCardController">
+
+    <ImageView fx:id="posterView" fitHeight="200" fitWidth="217.0" preserveRatio="true">
+      <VBox.margin>
+         <Insets bottom="5.0" top="5.0" />
+      </VBox.margin></ImageView>
+
+    <Text fx:id="movieTitle" style="-fx-font-size: 14px; -fx-font-weight: bold;">
+      <VBox.margin>
+         <Insets bottom="5.0" left="5.0" top="5.0" />
+      </VBox.margin></Text>
+    <Text fx:id="movieGenre">
+      <VBox.margin>
+         <Insets left="5.0" />
+      </VBox.margin></Text>
+    <Text fx:id="movieRelease">
+      <VBox.margin>
+         <Insets bottom="10.0" left="5.0" />
+      </VBox.margin></Text>
+
+    <Button fx:id="showtimeBtn" prefWidth="160" style="-fx-background-color: blue; -fx-text-fill: white; -fx-font-weight: bold;" text="View Showtimes">
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin></Button>
+</VBox>
