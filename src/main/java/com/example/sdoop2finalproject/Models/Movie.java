@@ -8,28 +8,37 @@ public class Movie {
     /**
      * ID for the movie.
      */
-    private final int aMovieID;
+    private int aMovieID;
     /**
      * Title of the movie.
      */
-    private final String aMovieName;
+    private String aMovieName;
     /**
      * release date of the movie.
      */
-    private final String aReleaseDate;
+    private String aReleaseDate;
     /**
      * Genre of the movie.
      */
-    private final String aMovieGenre;
+    private String aMovieGenre;
     /**
      * File path to the movie poster image used by MovieCardController.
      */
-    private final String aImagePath;
+    private String aImagePath;
+    /**
+     * Price of the movie ticket.
+     */
+    private double aPrice;
+    /**
+     * Description of the movie.
+     */
+    private String aDescription;
 
     /**
      * Construct a movie object with all its details.
      * @param pMovieID ID for the movie.
-     * @param pReleaseDate Title of the movie.
+     * @param pMovieName Title of the movie.
+     * @param pReleaseDate Release date of the movie.
      * @param pMovieGenre Genre of the movie.
      * @param pImagePath Image of the movie.
      */
@@ -39,12 +48,34 @@ public class Movie {
         this.aReleaseDate = pReleaseDate;
         this.aMovieGenre = pMovieGenre;
         this.aImagePath = pImagePath;
+        this.aPrice = 0.0;
+        this.aDescription = "";
+    }
+
+    /**
+     * Construct a movie object with all details including price and description.
+     */
+    public Movie(int pMovieID, String pMovieName, String pReleaseDate, String pMovieGenre, String pImagePath, double pPrice, String pDescription) {
+        this.aMovieID = pMovieID;
+        this.aMovieName = pMovieName;
+        this.aReleaseDate = pReleaseDate;
+        this.aMovieGenre = pMovieGenre;
+        this.aImagePath = pImagePath;
+        this.aPrice = pPrice;
+        this.aDescription = pDescription;
     }
 
     /**
      * @return the movie ID
      */
     public int getaMovieID() {
+        return aMovieID;
+    }
+
+    /**
+     * @return the movie ID (alternative getter)
+     */
+    public int getMovieID() {
         return aMovieID;
     }
 
@@ -56,9 +87,23 @@ public class Movie {
     }
 
     /**
+     * @return the movie name (alternative getter)
+     */
+    public String getMovieName() {
+        return aMovieName;
+    }
+
+    /**
      * @return the release date.
      */
     public String getaReleaseDate() {
+        return aReleaseDate;
+    }
+
+    /**
+     * @return the release date (alternative getter)
+     */
+    public String getReleaseDate() {
         return aReleaseDate;
     }
 
@@ -70,10 +115,59 @@ public class Movie {
     }
 
     /**
+     * @return the movie genre (alternative getter)
+     */
+    public String getGenre() {
+        return aMovieGenre;
+    }
+
+    /**
      * Returns the file path to the movie's poster image.
      * @return image path
      */
     public String getaImagePath() {
         return aImagePath;
+    }
+
+    /**
+     * @return the ticket price
+     */
+    public double getPrice() {
+        return aPrice;
+    }
+
+    public String setMovieName(String pMovieName) {
+        return aMovieName = pMovieName;
+    }
+
+    public String setGenre(String pGenre) {
+        return aMovieGenre = pGenre;
+    }
+
+    public String setReleaseDate(String pReleaseDate) {
+        return aReleaseDate = pReleaseDate;
+    }
+
+    /**
+     * Set the ticket price
+     * @param pPrice the new price
+     */
+    public void setPrice(double pPrice) {
+        this.aPrice = pPrice;
+    }
+
+    /**
+     * @return the movie description
+     */
+    public String getDescription() {
+        return aDescription;
+    }
+
+    /**
+     * Set the movie description
+     * @param pDescription the new description
+     */
+    public void setDescription(String pDescription) {
+        this.aDescription = pDescription;
     }
 }

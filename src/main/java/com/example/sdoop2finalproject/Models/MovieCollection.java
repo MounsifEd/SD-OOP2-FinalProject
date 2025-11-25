@@ -5,8 +5,8 @@ import javafx.collections.ObservableList;
 
 /**
  * By using ObservableList, it stores a collection of Movie objects.
- * And can do various thing like add or delete a movie Object of the ObservableList.
- * Find a movie based of its ID.
+ * And can do various things like add or delete a movie Object of the ObservableList.
+ * Find a movie based on its ID.
  * @Author Mounsif
  */
 public class MovieCollection {
