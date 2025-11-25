@@ -13,41 +13,41 @@ public class MovieCollection {
     /**
      * Stores all Movie objects.
      */
-    private final ObservableList<Movie> movies = FXCollections.observableArrayList();
+    private final ObservableList<Movie> aMovies = FXCollections.observableArrayList();
 
     /**
      * Returns the observable list of all movies.
      * @return ObservableList of Movie objects.
      */
     public ObservableList<Movie> getMovies() {
-        return movies;
+        return aMovies;
     }
 
     /**
      * It adds a Movie Object to the collection.
-     * @param movie to add
+     * @param pMovie to add
      */
-    public void addMovie(Movie movie) {
-        movies.add(movie);
+    public void addMovie(Movie pMovie) {
+        aMovies.add(pMovie);
     }
 
     /**
      * It removes a Movie Object of the collection.
-     * @param movie to remove
+     * @param pMovie to remove
      */
-    public void removeMovie(Movie movie) {
-        movies.remove(movie);
+    public void removeMovie(Movie pMovie) {
+        aMovies.remove(pMovie);
     }
 
     /**
      * Searches the movie list for a Movie with the given unique ID.
-     * @param id the unique ID of a movie that we search
+     * @param pId the unique ID of a movie that we search
      * @return movie with the matching ID,
      * but if NULL it will return {@code null}
      */
-    public Movie findByID(int id) {
-        for (Movie movie : movies) {
-            if (movie.getMovieID() == id) {
+    public Movie findByID(int pId) {
+        for (Movie movie : aMovies) {
+            if (movie.getaMovieID() == pId) {
                 return movie;
             }
         }

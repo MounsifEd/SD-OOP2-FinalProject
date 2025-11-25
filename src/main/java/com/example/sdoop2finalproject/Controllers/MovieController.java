@@ -36,14 +36,12 @@ public class MovieController {
     private void loadMovies() {
         movieFlowPane.getChildren().clear();
 
-        for (Movie movie : MovieData.getInstance().getMovies().getMovies()) {
+        for (Movie aMovie : MovieData.getInstance().getMovies().getMovies()) {
             try {
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/com/example/sdoop2finalproject/movie-card.fxml")
-                );
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sdoop2finalproject/movie-card.fxml"));
 
                 VBox card = loader.load();
-                loader.<MovieCardController>getController().setData(movie);
+                loader.<MovieCardController>getController().setData(aMovie);
                 movieFlowPane.getChildren().add(card);
 
             } catch (IOException e) {
