@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="16.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.MyTicketsController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="16.0">
+        <Button fx:id="backButton" onAction="#handleBack"
+                style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6px 12px; -fx-font-size: 14px;"
+                text="Back" />
+        <Label text="My Tickets" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+    </HBox>
+
+    <TableView fx:id="ticketsTableView" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="movieColumn" prefWidth="200.0" text="Movie"/>
+            <TableColumn fx:id="dateColumn" prefWidth="120.0" text="Date"/>
+            <TableColumn fx:id="timeColumn" prefWidth="100.0" text="Time"/>
+            <TableColumn fx:id="roomColumn" prefWidth="100.0" text="Room"/>
+            <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT" spacing="12.0">
+        <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Total Tickets:"/>
+        <Label fx:id="totalTicketsLabel" style="-fx-font-size: 14px; -fx-text-fill: #0052cc;" text="0"/>
+    </HBox>
+</VBox>
