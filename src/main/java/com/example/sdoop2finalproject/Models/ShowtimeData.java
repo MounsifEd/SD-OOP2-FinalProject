@@ -48,9 +48,6 @@ public class ShowtimeData {
 
         aShowCollection.addShow(new MovieShow(1, "18:00", "2025-11-24", 1, avatar));
         aShowCollection.addShow(new MovieShow(2, "21:00", "2025-11-24", 4, avatar));
-        aShowCollection.addShow(new MovieShow(2, "18:00", "2025-11-25", 4, avatar));
-        aShowCollection.addShow(new MovieShow(3, "18:00", "2025-11-26", 4, avatar));
-        aShowCollection.addShow(new MovieShow(4, "21:00", "2025-11-26", 4, avatar));
         aShowCollection.addShow(new MovieShow(3, "20:15", "2025-11-25", 2, interstellar));
     }
 
