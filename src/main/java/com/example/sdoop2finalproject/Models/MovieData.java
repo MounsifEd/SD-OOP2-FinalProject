@@ -41,9 +41,12 @@ public class MovieData {
      */
     private void testMovies() {
         aMovieCollection.addMovie(new Movie(1, "Avatar", "2009", "Sci-Fi", "/com/example/sdoop2finalproject/img/8124Pstj51L.jpg"));
-        aMovieCollection.addMovie(new Movie(2, "Interstellar", "2014", "Sci-Fi", "/com/example/sdoop2finalproject/img/8124Pstj51L.jpg"));
-        aMovieCollection.addMovie(new Movie(3, "Inside Out", "2015", "Animation", "/com/example/sdoop2finalproject/img/8124Pstj51L.jpg"));
-        aMovieCollection.addMovie(new Movie(4, "Spider-Man", "2021", "Action", "/com/example/sdoop2finalproject/img/8124Pstj51L.jpg"));
+        aMovieCollection.addMovie(new Movie(2, "Interstellar", "2014", "Sci-Fi", "/com/example/sdoop2finalproject/img/Interstellar.jpg"));
+        aMovieCollection.addMovie(new Movie(3, "Inside Out", "2015", "Animation", "/com/example/sdoop2finalproject/img/InsideOut.jpg"));
+        aMovieCollection.addMovie(new Movie(4, "Spider-Man", "2021", "Action", "/com/example/sdoop2finalproject/img/SpiderMan.jpg"));
+        aMovieCollection.addMovie(new Movie(4, "Spider-Man", "2021", "Action", "/com/example/sdoop2finalproject/img/SpiderMan.jpg"));
+        aMovieCollection.addMovie(new Movie(4, "Spider-Man", "2021", "Action", "/com/example/sdoop2finalproject/img/SpiderMan.jpg"));
+        aMovieCollection.addMovie(new Movie(4, "Spider-Man", "2021", "Action", "/com/example/sdoop2finalproject/img/SpiderMan.jpg"));
 
     }
 }

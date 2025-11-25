@@ -1,4 +1,4 @@
-package com.example.sdoop2finalproject;
+package com.example.sdoop2finalproject.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
