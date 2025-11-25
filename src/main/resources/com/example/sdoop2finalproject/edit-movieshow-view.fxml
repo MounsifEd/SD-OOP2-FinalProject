@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Author: Alejandro & Team -->
+<!-- DESIGN ONLY — CONTROLLER LOGIC WILL COME AFTER -->
+
+<BorderPane prefHeight="650" prefWidth="816.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.EditMovieShowController">
+
+    <!-- LEFT SIDE: Movie List -->
+    <left>
+        <VBox prefWidth="250" spacing="10" style="-fx-background-color: #f0f0f0;">
+            <children>
+
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Movies">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+               <VBox.margin>
+                  <Insets left="175.0" />
+               </VBox.margin>
+                </Label>
+
+
+
+                <ListView fx:id="movieListView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="442.0" />
+
+                <HBox alignment="CENTER" spacing="10">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                    <children>
+                        <Button fx:id="addMovieBtn" prefWidth="60" style="-fx-background-color: blue; -fx-text-fill: white;" text="Add" />
+                        <Button fx:id="editMovieBtn" prefWidth="60" style="-fx-background-color: blue; -fx-text-fill: white;" text="Edit" />
+                        <Button fx:id="deleteMovieBtn" prefWidth="60" style="-fx-background-color: red; -fx-text-fill: white;" text="Delete" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </left>
+
+    <!-- RIGHT SIDE: Movie Form -->
+    <center>
+        <ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="380.0">
+            <content>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="377.0" spacing="12">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+
+                    <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Movie Information" />
+
+                    <!-- Movie Name -->
+                    <VBox spacing="5">
+                        <Label text="Movie Name:" />
+                        <TextField fx:id="movieNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="337.0" promptText="Enter movie title" />
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+                    </VBox>
+
+                    <!-- Genre -->
+                    <VBox spacing="5">
+                        <Label text="Genre:" />
+                        <TextField fx:id="genreField" promptText="Enter movie genre" />
+                    </VBox>
+
+                    <!-- Release Date -->
+                    <VBox spacing="5">
+                        <Label text="Release Date:" />
+                        <TextField fx:id="releaseDateField" promptText="YYYY-MM-DD" />
+                    </VBox>
+
+                    <!-- Price -->
+                    <VBox spacing="5">
+                        <Label text="Ticket Price:" />
+                        <TextField fx:id="priceField" />
+                    </VBox>
+
+                    <!-- Description -->
+                    <VBox spacing="5">
+                        <Label text="Description:" />
+                        <TextArea fx:id="descriptionArea" prefHeight="120" />
+                    </VBox>
+
+                    <!-- Screening Times -->
+                    <VBox spacing="5">
+                        <Label text="Screening Times:" />
+                        <HBox spacing="10">
+                            <TextField fx:id="newShowtimeField" prefWidth="250" promptText="YYYY-MM-DD HH:MM" />
+                            <Button fx:id="addShowtimeBtn" style="-fx-background-color: blue; -fx-text-fill: white;" text="Add Time" />
+                        </HBox>
+
+                        <ListView fx:id="showtimeListView" prefHeight="83.0" prefWidth="638.0" />
+                    </VBox>
+
+                    <!-- Save / Cancel -->
+                    <HBox alignment="CENTER" spacing="20">
+                        <padding>
+                            <Insets bottom="10" left="10" right="10" top="10" />
+                        </padding>
+                        <children>
+                            <Button fx:id="saveBtn" prefWidth="120" style="-fx-background-color: green; -fx-text-fill: white;" text="Save" />
+
+                            <Button fx:id="cancelBtn" prefWidth="120" style="-fx-background-color: gray; -fx-text-fill: white;" text="Cancel" />
+                        </children>
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
