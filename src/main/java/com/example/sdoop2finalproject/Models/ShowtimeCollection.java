@@ -45,7 +45,7 @@ public class ShowtimeCollection {
      * @return the showtimes for the movie.
      */
     public ObservableList<MovieShow> getShowByMovieID(int pMovieID) {
-        return aShowList.filtered(s -> s.getMovie().getaMovieID() == pMovieID);
+        return aShowList.filtered(s -> s.getMovie().getMovieID() == pMovieID);
     }
 
 }

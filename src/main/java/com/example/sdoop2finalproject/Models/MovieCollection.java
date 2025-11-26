@@ -47,7 +47,7 @@ public class MovieCollection {
      */
     public Movie findByID(int pId) {
         for (Movie movie : aMovies) {
-            if (movie.getaMovieID() == pId) {
+            if (movie.getMovieID() == pId) {
                 return movie;
             }
         }
