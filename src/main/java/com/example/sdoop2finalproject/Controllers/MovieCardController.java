@@ -57,8 +57,6 @@ public class MovieCardController {
     public void setData(Movie pMovie) {
         this.aMovie = pMovie;
 
-        posterView.setImage(new Image(getClass().getResource(pMovie.getaImagePath()).toExternalForm()));
-
         movieTitle.setText(pMovie.getaMovieName());
         movieGenre.setText("Genre: " + pMovie.getaMovieGenre());
         movieRelease.setText("Release: " + pMovie.getaReleaseDate());

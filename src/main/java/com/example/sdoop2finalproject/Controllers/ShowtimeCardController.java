@@ -3,6 +3,8 @@ package com.example.sdoop2finalproject.Controllers;
 import com.example.sdoop2finalproject.Models.MovieShow;
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 /**
@@ -29,7 +31,8 @@ public class ShowtimeCardController {
     @FXML
     private Text roomText;
 
-
+    @FXML
+    private Button selectBtn;
     /**
      * Change UI components.
      * @param pShow the showtime displayed in the row.
@@ -38,6 +41,16 @@ public class ShowtimeCardController {
         dateText.setText(pShow.getShowDate());
         timeText.setText(pShow.getAshowTime());
         roomText.setText("Room " + pShow.getRoomID());
+
+        selectBtn.setOnAction(e -> showUnavailablePaymentAlert());
+    }
+
+    private void showUnavailablePaymentAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ticket Payment");
+        alert.setHeaderText("Payment Unavailable");
+        alert.setContentText("The payment method is currently unavailable. Please try later. ");
+        alert.showAndWait();
     }
 }
 

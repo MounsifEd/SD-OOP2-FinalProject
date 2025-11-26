@@ -22,23 +22,16 @@ public class Movie {
      */
     private final String aMovieGenre;
     /**
-     * File path to the movie poster image used by MovieCardController.
-     */
-    private final String aImagePath;
-
-    /**
      * Construct a movie object with all its details.
      * @param pMovieID ID for the movie.
      * @param pReleaseDate Title of the movie.
      * @param pMovieGenre Genre of the movie.
-     * @param pImagePath Image of the movie.
      */
-    public Movie(int pMovieID, String pMovieName, String pReleaseDate, String pMovieGenre, String pImagePath) {
+    public Movie(int pMovieID, String pMovieName, String pReleaseDate, String pMovieGenre) {
         this.aMovieID = pMovieID;
         this.aMovieName = pMovieName;
         this.aReleaseDate = pReleaseDate;
         this.aMovieGenre = pMovieGenre;
-        this.aImagePath = pImagePath;
     }
 
     /**
@@ -69,11 +62,4 @@ public class Movie {
         return aMovieGenre;
     }
 
-    /**
-     * Returns the file path to the movie's poster image.
-     * @return image path
-     */
-    public String getaImagePath() {
-        return aImagePath;
-    }
 }
