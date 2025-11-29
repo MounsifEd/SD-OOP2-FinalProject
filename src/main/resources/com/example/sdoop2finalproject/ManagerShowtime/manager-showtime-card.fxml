@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<!-- Author: Mounsif -->
+
+<HBox fx:id="showtimeCard" alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowtime.ManagerShowtimeCardController">
+    <children>
+        <Text fx:id="dateText" />
+        <Text fx:id="timeText" />
+        <Text fx:id="roomText" />
+        <Button fx:id="showtimeEdit" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: Green;" text="Edit" textFill="WHITE" />
+        <Button fx:id="showtimeRemove" prefHeight="33.0" prefWidth="149.0" style="-fx-background-color: Red;" text="Remove" textFill="WHITE">
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin></Button>
+    </children>
+    <padding>
+        <Insets left="30.0" />
+    </padding>
+</HBox>
