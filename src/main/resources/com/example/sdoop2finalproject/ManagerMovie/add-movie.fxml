@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!-- Author: Mounsif -->
+
+<VBox alignment="TOP_CENTER" prefHeight="319.0" prefWidth="281.0" spacing="30.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerMovie.AddMovieController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Movie">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Text>
+   <TextField fx:id="titleField" promptText="Enter Title" />
+   <TextField fx:id="genreField" promptText="Enter Genre" />
+   <TextField fx:id="releaseField" promptText="Enter Release Date" />
+   <HBox prefHeight="67.0" prefWidth="242.0">
+      <children>
+         <Button fx:id="addMovieButton" onAction="#addMovie" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: green;" text="Add Movie" textFill="WHITE" />
+         <Button fx:id="cancelAddMovieButton" onAction="#closeMovie" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+            <HBox.margin>
+               <Insets left="60.0" />
+            </HBox.margin>
+         </Button>
+      </children>
+   </HBox>
+</VBox>
