@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!-- Author: Mounsif -->
+
+<VBox prefHeight="254.0" prefWidth="275.0" spacing="12" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowRoom.AddRoomController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <children>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add ShowRoom" wrappingWidth="126.61328125">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+            <VBox.margin>
+                <Insets left="65.0" />
+            </VBox.margin>
+        </Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number" />
+        <TextField fx:id="roomNumber" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room Capacity" />
+        <TextField fx:id="roomCapacity" />
+        <HBox prefHeight="31.0" prefWidth="235.0">
+            <children>
+                <Button fx:id="addRoom" onAction="#addRoom" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: green;" text="Add" textFill="WHITE">
+                    <HBox.margin>
+                        <Insets right="40.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="cancelAddRoomButton" onAction="#closeWindow" prefHeight="34.0" prefWidth="97.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE" />
+            </children>
+        </HBox>
+    </children>
+
+</VBox>

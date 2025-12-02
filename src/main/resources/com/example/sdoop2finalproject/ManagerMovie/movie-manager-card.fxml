@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<!-- Author: Mounsif -->
+
+<VBox alignment="CENTER" prefHeight="139.0" prefWidth="378.0" style="-fx-background-color: white; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerMovie.MovieManagerCardController">
+
+    <Text fx:id="movieManagerTitle" style="-fx-font-size: 14px; -fx-font-weight: bold;">
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" top="5.0" />
+        </VBox.margin></Text>
+    <Text fx:id="movieManagerGenre">
+        <VBox.margin>
+            <Insets left="5.0" />
+        </VBox.margin></Text>
+    <Text fx:id="movieManagerRelease">
+        <VBox.margin>
+            <Insets bottom="10.0" left="5.0" />
+        </VBox.margin></Text>
+    <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="350.0" spacing="5.0">
+        <children>
+            <Button fx:id="editManagerButton" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: green; -fx-text-fill: white; -fx-font-weight: bold;" text="Edit" />
+
+            <Button fx:id="removeManagerButton" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Remove" />
+            <Button fx:id="showtimeManagerButton" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-font-weight: bold;" text="Showtimes" />
+        </children>
+        <VBox.margin>
+            <Insets left="5.0" />
+        </VBox.margin>
+    </HBox>
+</VBox>
