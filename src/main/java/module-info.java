@@ -6,6 +6,9 @@ module com.example.sdoop2finalproject {
 
     opens com.example.sdoop2finalproject to javafx.fxml;
     exports com.example.sdoop2finalproject;
+    // Allow FXMLLoader to access controllers in the root Controllers package
+    exports com.example.sdoop2finalproject.Controllers;
+    opens com.example.sdoop2finalproject.Controllers to javafx.fxml;
     exports com.example.sdoop2finalproject.Models.Movie;
     opens com.example.sdoop2finalproject.Models.Movie to javafx.fxml;
     exports com.example.sdoop2finalproject.Models.Showtimes;
