@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
+<!-- Author: Alejandro -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" />
+<VBox prefHeight="320.0" prefWidth="300.0" spacing="12" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowRoom.EditRoomController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <children>
+
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit ShowRoom">
+            <font>
+                <Font name="System Bold" size="16" />
+            </font>
+            <VBox.margin>
+                <Insets left="60" />
+            </VBox.margin>
+        </Text>
+
+        <!-- Room number -->
+        <Text text="Room Number" />
+        <TextField fx:id="roomNumber" />
+
+        <!-- Room capacity -->
+        <Text text="Room Capacity" />
+        <TextField fx:id="roomCapacity" />
+
+        <!-- Buttons -->
+        <HBox alignment="CENTER" spacing="30">
+            <children>
+                <Button fx:id="updateRoomButton" onAction="#updateRoom" prefWidth="100" style="-fx-background-color: green; -fx-text-fill: white;" text="Update" />
+
+                <Button fx:id="cancelButton" onAction="#closeWindow" prefWidth="100" style="-fx-background-color: red; -fx-text-fill: white;" text="Cancel" />
+            </children>
+        </HBox>
+
+    </children>
+
+</VBox>

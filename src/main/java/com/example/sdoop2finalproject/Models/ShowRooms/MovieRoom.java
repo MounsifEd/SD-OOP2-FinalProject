@@ -12,10 +12,10 @@ package com.example.sdoop2finalproject.Models.ShowRooms;
 public class MovieRoom {
 
     /** Unique identifier for the cinema room. */
-    private final int aRoomID;
+    private int aRoomID;  // Remove 'final' to allow updates
 
     /** The seating capacity of the room. */
-    private final int aRoomCapacity;
+    private int aRoomCapacity;  // Remove 'final' to allow updates
 
     /**
      * Creates a new MovieRoom object.
@@ -36,6 +36,16 @@ public class MovieRoom {
     /** @return number of seats in the room */
     public int getNumberOfSeats() {
         return aRoomCapacity;
+    }
+
+    /** Sets the room ID */
+    public void setRoomID(int pRoomID) {
+        this.aRoomID = pRoomID;
+    }
+
+    /** Sets the number of seats */
+    public void setNumberOfSeats(int pNumberOfSeats) {
+        this.aRoomCapacity = pNumberOfSeats;
     }
 
     @Override

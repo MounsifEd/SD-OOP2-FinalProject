@@ -1,5 +1,7 @@
 package com.example.sdoop2finalproject.Models.Movie;
 
+import javafx.collections.FXCollections;
+
 /**
  * Class that uses Singleton pattern
  * for storing and accessing data of all movies.
@@ -44,6 +46,14 @@ public class MovieData {
         aMovieCollection.addMovie(new Movie(2, "Interstellar", 2014, "Sci-Fi"));
         aMovieCollection.addMovie(new Movie(3, "Inside Out", 2015, "Animation"));
         aMovieCollection.addMovie(new Movie(4, "Spider-Man", 2021, "Action"));
+    }
 
+    /**
+     * Refreshes the observable movie list to trigger UI updates.
+     */
+    public void refreshMovieList() {
+        var list = aMovieCollection.getMovies();
+        var copy = FXCollections.observableArrayList(list);
+        list.setAll(copy);
     }
 }

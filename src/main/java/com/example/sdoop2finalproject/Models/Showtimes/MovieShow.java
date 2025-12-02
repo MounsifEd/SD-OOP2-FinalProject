@@ -14,15 +14,15 @@ public class MovieShow {
     /**
      * Time at what the movie will be shown
      */
-    private final String aShowTime;
+    private String aShowTime;
     /**
      * Date if the show in YYYY-MMM-DD
      */
-    private final String aShowDate;
+    private String aShowDate;
     /**
      * ID of the room where the movie will be shown.
      */
-    private final int aRoomID;
+    private int aRoomID;
     /**
      * The movie at this showtime.
      */
@@ -81,6 +81,30 @@ public class MovieShow {
      */
     public Movie getMovie() {
         return aMovie;
+    }
+
+    /**
+     * Sets the showtime.
+     * @param pShowTime the new showtime
+     */
+    public void setShowTime(String pShowTime) {
+        this.aShowTime = pShowTime;
+    }
+
+    /**
+     * Sets the show date.
+     * @param pShowDate the new show date
+     */
+    public void setShowDate(String pShowDate) {
+        this.aShowDate = pShowDate;
+    }
+
+    /**
+     * Sets the room ID.
+     * @param pRoomID the new room ID
+     */
+    public void setRoomID(int pRoomID) {
+        this.aRoomID = pRoomID;
     }
 }
 

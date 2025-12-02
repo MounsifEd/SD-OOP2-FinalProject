@@ -2,6 +2,7 @@ package com.example.sdoop2finalproject.Models.Showtimes;
 
 import com.example.sdoop2finalproject.Models.Movie.Movie;
 import com.example.sdoop2finalproject.Models.Movie.MovieData;
+import javafx.collections.FXCollections;
 
 /**
  * Has all showtimes using the Singleton pattern.
@@ -54,4 +55,12 @@ public class ShowtimeData {
         aShowCollection.addShow(new MovieShow(3, "20:15", "2025-11-25", 2, interstellar));
     }
 
+    /**
+     * Refreshes the observable showtime list to trigger UI updates.
+     */
+    public void refreshShowtimeList() {
+        var list = aShowCollection.getShowList();
+        var copy = FXCollections.observableArrayList(list);
+        list.setAll(copy);
+    }
 }

@@ -12,15 +12,15 @@ public class Movie {
     /**
      * Title of the movie.
      */
-    private final String aMovieName;
+    private  String aMovieName;
     /**
      * release date of the movie.
      */
-    private final int aReleaseDate;
+    private int aReleaseDate;
     /**
      * Genre of the movie.
      */
-    private final String aMovieGenre;
+    private String aMovieGenre;
     /**
      * Construct a movie object with all its details.
      * @param pMovieID ID for the movie.
@@ -62,4 +62,15 @@ public class Movie {
         return aMovieGenre;
     }
 
+    public void setMovieName(String pMovieName) {
+        this.aMovieName = pMovieName;
+    }
+
+    public void setMovieGenre(String pMovieGenre) {
+        this.aMovieGenre = pMovieGenre;
+    }
+
+    public void setReleaseDate(int pReleaseDate) {
+        this.aReleaseDate = pReleaseDate;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerMovie;
 
+import com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowRoom.EditRoomController;
 import com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowtime.ManagerShowtimeController;
 import com.example.sdoop2finalproject.Models.Movie.Movie;
 import com.example.sdoop2finalproject.Models.Movie.MovieData;
@@ -103,9 +104,50 @@ public class MovieManagerCardController {
     }
 
     /**
+     * Refreshes the card's UI elements with the current movie data.
+     * Called after the movie has been edited to reflect updated information.
+     */
+    private void refreshUI() {
+        movieManagerTitle.setText(aMovie.getaMovieName());
+        movieManagerGenre.setText("Genre: " + aMovie.getaMovieGenre());
+        movieManagerRelease.setText("Release: " + aMovie.getaReleaseDate());
+    }
+
+    /**
+     * Opens the edit movie dialog window.
+     * Loads the edit-movie.fxml view, passes the current movie data to the
+     * EditMovieController, and sets up a callback to refresh the card UI
+     * after successful updates.
      *
+     * <p>If an error occurs while loading the FXML, the exception is
+     * printed to the console.</p>
      */
     private void editMovieCard() {
+        try {
+            // Load the edit movie FXML
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/example/sdoop2finalproject/ManagerMovie/edit-movie.fxml")
+            );
 
+            Parent root = loader.load();
+
+            // Get the controller and configure it
+            EditMovieController controller = loader.getController();
+
+            // Pass current movie to edit window
+            controller.setMovie(aMovie);
+
+            // Pass a callback so the card can refresh UI after update
+            controller.setOnMovieUpdated(this::refreshUI);
+
+            // Create and show the edit window
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Edit Movie");
+            stage.show();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
