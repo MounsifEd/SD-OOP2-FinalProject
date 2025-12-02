@@ -1,5 +1,7 @@
 package com.example.sdoop2finalproject.Models.ShowRooms;
 
+import javafx.collections.FXCollections;
+
 /**
  * @Author Mounsif
  */
@@ -24,5 +26,11 @@ public class RoomData {
         roomCollection.addRoom(new MovieRoom(2, 120));
         roomCollection.addRoom(new MovieRoom(3, 40));
         roomCollection.addRoom(new MovieRoom(4, 150));
+    }
+
+    public void refreshRoomList() {
+        var list = roomCollection.getRooms();
+        var copy = FXCollections.observableArrayList(list);
+        list.setAll(copy);
     }
 }

@@ -19,6 +19,8 @@ public class AddRoomController {
     @FXML
     private TextField roomCapacity;
 
+
+
     /**
      * Method called when the manager click on the add button.
      * See if both fields are filled,

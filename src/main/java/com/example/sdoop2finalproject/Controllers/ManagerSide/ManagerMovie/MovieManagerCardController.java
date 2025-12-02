@@ -1,5 +1,6 @@
 package com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerMovie;
 
+import com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowRoom.EditRoomController;
 import com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowtime.ManagerShowtimeController;
 import com.example.sdoop2finalproject.Models.Movie.Movie;
 import com.example.sdoop2finalproject.Models.Movie.MovieData;
@@ -102,10 +103,7 @@ public class MovieManagerCardController {
         }
     }
 
-    /**
-     *
-     */
     private void editMovieCard() {
 
-    }
+}
 }
