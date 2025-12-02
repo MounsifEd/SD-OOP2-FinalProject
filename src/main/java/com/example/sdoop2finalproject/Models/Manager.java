@@ -1,5 +1,7 @@
 package com.example.sdoop2finalproject.Models;
 
+import com.example.sdoop2finalproject.Models.Movie.Movie;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashMap;
