@@ -34,9 +34,7 @@ public class EditRoomController {
      * Called automatically after the FXML file has been loaded.
      */
     @FXML
-    private void initialize() {
-        // Initialization logic can be added here if needed
-    }
+    private void initialize() {}
 
     /**
      * Sets the room to be edited and populates the text fields with its current data.
