@@ -4,8 +4,11 @@ import com.example.sdoop2finalproject.Models.Movie.Movie;
 import com.example.sdoop2finalproject.Models.Movie.MovieData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -47,6 +50,23 @@ public class MovieController {
             } catch (IOException e) {
                 throw new RuntimeException("Unable to load movie card FXML", e);
             }
+        }
+    }
+
+    /**
+     * Simple handler to return to the login view.
+     */
+    @FXML
+    public void openLoginView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sdoop2finalproject/login-view.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) movieFlowPane.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Log In");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to load login view", e);
         }
     }
 }

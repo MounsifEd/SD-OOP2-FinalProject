@@ -25,7 +25,6 @@ public class Manager implements Serializable {
     private String email;
     private String username;
     private String password;
-    private String phoneNumber;
     private boolean active = true;
     private LocalDateTime lastLoginDate;
 
@@ -48,11 +47,6 @@ public class Manager implements Serializable {
         this.password = password;
     }
 
-    public Manager(int managerId, String firstName, String lastName, String email, String username, String password, String phoneNumber) {
-        this(firstName, lastName, email, username, password);
-        this.managerId = managerId;
-        this.phoneNumber = phoneNumber;
-    }
 
     // Getters and setters
     public int getManagerId() {
@@ -107,14 +101,6 @@ public class Manager implements Serializable {
      */
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public boolean isActive() {
@@ -233,7 +219,6 @@ public class Manager implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
                 ", active=" + active +
                 ", managedMovies=" + managedMovieIds.size() +
                 ", managedRooms=" + managedRoomIds.size() +

@@ -6,6 +6,11 @@
 package com.example.sdoop2finalproject.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -15,108 +20,96 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class LoginController {
-    @FXML
-    private TextField emailField;
-    @FXML
-    private PasswordField passwordField;
-    @FXML
-    private CheckBox keepLoggedInCheckBox;
-    @FXML
-    private Button logInButton;
-    @FXML
-    private TextField firstNameField;
-    @FXML
-    private TextField lastNameField;
-    @FXML
-    private TextField signupEmailField;
-    @FXML
-    private PasswordField signupPasswordField;
-    @FXML
-    private Button signUpButton;
-    @FXML
-    private VBox loginForm;
-    @FXML
-    private VBox signupForm;
-    @FXML
-    private Label signUpLink;
-    @FXML
-    private Label loginLink;
-    @FXML
-    private Label critLen;
-    @FXML
-    private Label critUpper;
-    @FXML
-    private Label critLower;
-    @FXML
-    private Label critDigit;
-    @FXML
-    private Label critSpecial;
-    private static final String DEFAULT_PWD_STYLE = "-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;";
-    private static final String ERROR_PWD_STYLE = "-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;";
+    // FXML paths and titles
+    private static final String FXML_MANAGER = "/com/example/sdoop2finalproject/ManagerMovie/manager-view.fxml";
+    private static final String FXML_CLIENT  = "/com/example/sdoop2finalproject/ClientSide/movie-view.fxml";
+    private static final String TITLE_MANAGER = "Manager";
+    private static final String TITLE_CLIENT  = "Movies";
+
+    // Inline auth for manager
+    private static final String MANAGER_USER = "manager";
+    private static final String MANAGER_PASS = "manager123";
+
+    // Styles
+    private static final String DEFAULT_PWD_STYLE   = "-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;";
+    private static final String ERROR_PWD_STYLE     = "-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;";
     private static final String DEFAULT_EMAIL_STYLE = "-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;";
-    private static final String ERROR_EMAIL_STYLE = "-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;";
+    private static final String ERROR_EMAIL_STYLE   = "-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;";
+
+    @FXML private TextField emailField;
+    @FXML private PasswordField passwordField;
+    @FXML private CheckBox keepLoggedInCheckBox;
+    @FXML private Button logInButton;
+
+    @FXML private TextField firstNameField;
+    @FXML private TextField lastNameField;
+    @FXML private TextField signupEmailField;
+    @FXML private PasswordField signupPasswordField;
+    @FXML private Button signUpButton;
+
+    @FXML private VBox loginForm;
+    @FXML private VBox signupForm;
+    @FXML private Label signUpLink;
+    @FXML private Label loginLink;
+
+    @FXML private Label critLen;
+    @FXML private Label critUpper;
+    @FXML private Label critLower;
+    @FXML private Label critDigit;
+    @FXML private Label critSpecial;
 
     @FXML
     public void initialize() {
-        this.signupForm.setVisible(false);
-        this.signupForm.setManaged(false);
-        this.signupPasswordField.textProperty().addListener((obs, oldV, newV) -> {
-            this.updatePasswordCriteria(newV == null ? "" : newV);
-            if (this.isPasswordValid(newV)) {
-                this.signupPasswordField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;");
-            }
+        // show only login by default
+        signupForm.setVisible(false);
+        signupForm.setManaged(false);
 
-        });
-        this.updatePasswordCriteria("");
-        this.signupEmailField.textProperty().addListener((obs, oldV, newV) -> {
-            if (this.isEmailValid(newV)) {
-                this.signupEmailField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;");
-            }
+        // reset styles when user types valid values
+        attachDefaultStyleOnInput(emailField, DEFAULT_EMAIL_STYLE);
+        attachDefaultStyleOnInput(passwordField, DEFAULT_PWD_STYLE);
+        attachDefaultStyleOnInput(firstNameField, DEFAULT_EMAIL_STYLE);
+        attachDefaultStyleOnInput(lastNameField, DEFAULT_EMAIL_STYLE);
+        attachDefaultStyleOnInput(signupEmailField, DEFAULT_EMAIL_STYLE);
+        attachDefaultStyleOnInput(signupPasswordField, DEFAULT_PWD_STYLE);
 
-        });
-        this.firstNameField.textProperty().addListener((obs, ov, nv) -> {
-            if (this.isNotEmpty(nv)) {
-                this.firstNameField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;");
+        // password criteria for sign-up
+        signupPasswordField.textProperty().addListener((obs, ov, nv) -> {
+            String value = nv == null ? "" : nv;
+            updatePasswordCriteria(value);
+            if (isPasswordValid(value)) {
+                signupPasswordField.setStyle(DEFAULT_PWD_STYLE);
             }
-
         });
-        this.lastNameField.textProperty().addListener((obs, ov, nv) -> {
-            if (this.isNotEmpty(nv)) {
-                this.lastNameField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;");
-            }
+        updatePasswordCriteria("");
 
-        });
-        this.emailField.textProperty().addListener((obs, ov, nv) -> {
-            if (this.isNotEmpty(nv)) {
-                this.emailField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;");
-            }
-
-        });
-        this.passwordField.textProperty().addListener((obs, ov, nv) -> {
-            if (this.isNotEmpty(nv)) {
-                this.passwordField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;");
-            }
-
-        });
-        this.logInButton.setOnAction((event) -> this.handleLogIn());
-        this.signUpButton.setOnAction((event) -> this.handleSignUp());
+        // actions
+        logInButton.setOnAction(e -> handleLogIn());
+        signUpButton.setOnAction(e -> handleSignUp());
     }
 
     @FXML
     private void showSignUp() {
-        this.loginForm.setVisible(false);
-        this.loginForm.setManaged(false);
-        this.signupForm.setVisible(true);
-        this.signupForm.setManaged(true);
+        loginForm.setVisible(false);
+        loginForm.setManaged(false);
+        signupForm.setVisible(true);
+        signupForm.setManaged(true);
     }
 
     @FXML
     private void showLogin() {
-        this.signupForm.setVisible(false);
-        this.signupForm.setManaged(false);
-        this.loginForm.setVisible(true);
-        this.loginForm.setManaged(true);
+        signupForm.setVisible(false);
+        signupForm.setManaged(false);
+        loginForm.setVisible(true);
+        loginForm.setManaged(true);
+    }
+
+    private void attachDefaultStyleOnInput(TextField field, String defaultStyle) {
+        field.textProperty().addListener((obs, ov, nv) -> {
+            if (isNotEmpty(nv)) field.setStyle(defaultStyle);
+        });
     }
 
     private void updatePasswordCriteria(String pw) {
@@ -125,33 +118,27 @@ public class LoginController {
         boolean lowerOk = pw.matches(".*[a-z].*");
         boolean digitOk = pw.matches(".*\\d.*");
         boolean specialOk = pw.matches(".*[^A-Za-z0-9].*");
-        String baseLen = "10-20 characters";
-        String baseUpper = "1 uppercase (A-Z)";
-        String baseLower = "1 lowercase (a-z)";
-        String baseDigit = "1 number";
-        String baseSpecial = "1 non-alphanumeric";
-        this.setCriterion(this.critLen, baseLen, lenOk);
-        this.setCriterion(this.critUpper, baseUpper, upperOk);
-        this.setCriterion(this.critLower, baseLower, lowerOk);
-        this.setCriterion(this.critDigit, baseDigit, digitOk);
-        this.setCriterion(this.critSpecial, baseSpecial, specialOk);
+
+        setCriterion(critLen,    "10-20 characters",    lenOk);
+        setCriterion(critUpper,  "1 uppercase (A-Z)",   upperOk);
+        setCriterion(critLower,  "1 lowercase (a-z)",   lowerOk);
+        setCriterion(critDigit,  "1 number",            digitOk);
+        setCriterion(critSpecial,"1 non-alphanumeric",  specialOk);
     }
 
     private boolean isPasswordValid(String pw) {
-        if (pw == null) {
-            return false;
-        } else {
-            return pw.length() >= 10 && pw.length() <= 20 && pw.matches(".*[A-Z].*") && pw.matches(".*[a-z].*") && pw.matches(".*\\d.*") && pw.matches(".*[^A-Za-z0-9].*");
-        }
+        return pw != null
+                && pw.length() >= 10 && pw.length() <= 20
+                && pw.matches(".*[A-Z].*")
+                && pw.matches(".*[a-z].*")
+                && pw.matches(".*\\d.*")
+                && pw.matches(".*[^A-Za-z0-9].*");
     }
 
     private boolean isEmailValid(String email) {
-        if (email == null) {
-            return false;
-        } else {
-            String trimmed = email.trim();
-            return !trimmed.isEmpty() && trimmed.contains("@");
-        }
+        if (email == null) return false;
+        String trimmed = email.trim();
+        return !trimmed.isEmpty() && trimmed.contains("@");
     }
 
     private boolean isNotEmpty(String text) {
@@ -159,15 +146,14 @@ public class LoginController {
     }
 
     private boolean validateNotEmpty(TextField field, String fieldName) {
-        if (!this.isNotEmpty(field.getText())) {
-            field.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;");
+        if (!isNotEmpty(field.getText())) {
+            field.setStyle(ERROR_EMAIL_STYLE);
             field.requestFocus();
-            this.showErrorAlert("Invalid credentials");
+            showErrorAlert("Invalid credentials");
             System.out.println(fieldName + " field is empty.");
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     private void setCriterion(Label label, String base, boolean ok) {
@@ -178,58 +164,83 @@ public class LoginController {
     private void showErrorAlert(String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Invalid Credentials");
-        alert.setHeaderText((String)null);
+        alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
 
     @FXML
     private void handleLogIn() {
-        String email = this.emailField.getText();
-        String password = this.passwordField.getText();
-        boolean keepLoggedIn = this.keepLoggedInCheckBox.isSelected();
-        if (!this.isNotEmpty(email)) {
-            this.emailField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;");
-            this.emailField.requestFocus();
-            this.showErrorAlert("Invalid credentials");
+        String user = emailField.getText();
+        String pw   = passwordField.getText();
+
+        if (!isNotEmpty(user)) {
+            emailField.setStyle(ERROR_EMAIL_STYLE);
+            emailField.requestFocus();
+            showErrorAlert("Invalid credentials");
             System.out.println("Login email/username field is empty.");
-        } else if (!this.isNotEmpty(password)) {
-            this.passwordField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;");
-            this.passwordField.requestFocus();
-            this.showErrorAlert("Invalid credentials");
-            System.out.println("Login password field is empty.");
-        } else {
-            System.out.println("Login attempt - Email/Username: " + email + ", Keep logged in: " + keepLoggedIn);
+            return;
         }
+        if (!isNotEmpty(pw)) {
+            passwordField.setStyle(ERROR_PWD_STYLE);
+            passwordField.requestFocus();
+            showErrorAlert("Invalid credentials");
+            System.out.println("Login password field is empty.");
+            return;
+        }
+
+        if (MANAGER_USER.equalsIgnoreCase(user.trim()) && MANAGER_PASS.equals(pw)) {
+            navigateTo(FXML_MANAGER, TITLE_MANAGER, logInButton);
+            return;
+        }
+        navigateTo(FXML_CLIENT, TITLE_CLIENT, logInButton);
     }
 
     @FXML
     private void handleSignUp() {
-        String firstName = this.firstNameField.getText();
-        String lastName = this.lastNameField.getText();
-        String email = this.signupEmailField.getText();
-        String password = this.signupPasswordField.getText();
-        if (this.validateNotEmpty(this.firstNameField, "First name")) {
-            if (this.validateNotEmpty(this.lastNameField, "Last name")) {
-                if (!this.isEmailValid(email)) {
-                    this.signupEmailField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;");
-                    this.signupEmailField.requestFocus();
-                    this.showErrorAlert("Invalid credentials");
-                    System.out.println("Sign-up email is blank or missing '@'.");
-                } else if (!this.isPasswordValid(password)) {
-                    this.signupPasswordField.setStyle("-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #e53935; -fx-border-width: 2;");
-                    this.signupPasswordField.requestFocus();
-                    this.showErrorAlert("Invalid credentials");
-                    System.out.println("Password does not meet requirements.");
-                } else {
-                    System.out.println("Sign up attempt - Name: " + firstName + " " + lastName + ", Email: " + email);
-                }
-            }
+        String firstName = firstNameField.getText();
+        String lastName  = lastNameField.getText();
+        String email     = signupEmailField.getText();
+        String pw        = signupPasswordField.getText();
+
+        if (!validateNotEmpty(firstNameField, "First name")) return;
+        if (!validateNotEmpty(lastNameField, "Last name")) return;
+
+        if (!isEmailValid(email)) {
+            signupEmailField.setStyle(ERROR_EMAIL_STYLE);
+            signupEmailField.requestFocus();
+            showErrorAlert("Invalid credentials");
+            System.out.println("Sign-up email is blank or missing '@'.");
+            return;
         }
+        if (!isPasswordValid(pw)) {
+            signupPasswordField.setStyle(ERROR_PWD_STYLE);
+            signupPasswordField.requestFocus();
+            showErrorAlert("Invalid credentials");
+            System.out.println("Password does not meet requirements.");
+            return;
+        }
+
+        System.out.println("Sign up attempt - Name: " + firstName + " " + lastName + ", Email: " + email);
+        navigateTo(FXML_CLIENT, TITLE_CLIENT, signUpButton);
     }
 
     @FXML
     private void handleForgotPassword() {
         System.out.println("Forgot password clicked");
+    }
+
+    private void navigateTo(String fxmlPath, String title, Node fromNode) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+            Stage stage = (Stage) fromNode.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle(title);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showErrorAlert("Unable to open page.");
+        }
     }
 }

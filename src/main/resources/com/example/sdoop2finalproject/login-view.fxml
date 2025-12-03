@@ -43,7 +43,7 @@
 
 
         <!-- Log In Button -->
-        <Button fx:id="logInButton" text="LOG IN >" maxWidth="Infinity" prefHeight="45.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #0052cc; -fx-text-fill: white; -fx-cursor: hand;" />
+        <Button fx:id="logInButton" text="LOG IN" maxWidth="Infinity" prefHeight="45.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #0052cc; -fx-text-fill: white; -fx-cursor: hand;" />
     </VBox>
 
     <!-- RIGHT SIDE: SIGN UP FORM -->
@@ -94,7 +94,7 @@
         <CheckBox text="Get exclusive movie deals delivered right to your email. You can unsubscribe from our Movies Special Offers and Events at any time." wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #333333;" />
 
         <!-- Sign Up Button -->
-        <Button fx:id="signUpButton" text="SIGN UP >" maxWidth="Infinity" prefHeight="45.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #0052cc; -fx-text-fill: white; -fx-cursor: hand;" />
+        <Button fx:id="signUpButton" text="SIGN UP" maxWidth="Infinity" prefHeight="45.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: #0052cc; -fx-text-fill: white; -fx-cursor: hand;" />
 
 
     </VBox>
