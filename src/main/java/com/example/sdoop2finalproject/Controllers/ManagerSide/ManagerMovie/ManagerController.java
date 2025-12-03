@@ -26,6 +26,9 @@ public class ManagerController {
     @FXML
     private Button showRoomManagerButton;
 
+    @FXML
+    private Button ticketSaleButton;
+
     /**
      * Run when the view is open,
      * it loads all current movies.
@@ -37,6 +40,9 @@ public class ManagerController {
         loadMovies();
         addMovieButton.setOnAction(e -> openAddMovieView());
         showRoomManagerButton.setOnAction(e -> openRoomView());
+        if (ticketSaleButton != null) {
+            ticketSaleButton.setOnAction(e -> openTicketSalesView());
+        }
     }
 
     /**
@@ -101,6 +107,23 @@ public class ManagerController {
             stage.setTitle("Cinema Rooms");
             stage.show();
 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Opens the Ticket Sales report view.
+     */
+    private void openTicketSalesView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sdoop2finalproject/TicketSale-view.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Ticket Sales Report");
+            stage.show();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
