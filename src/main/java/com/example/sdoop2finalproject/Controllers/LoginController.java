@@ -85,6 +85,14 @@ public class LoginController {
         });
         updatePasswordCriteria("");
 
+        // Adjust visible criteria: show uppercase, hide lowercase and special
+        critUpper.setVisible(true);
+        critUpper.setManaged(true);
+        critLower.setVisible(false);
+        critLower.setManaged(false);
+        critSpecial.setVisible(false);
+        critSpecial.setManaged(false);
+
         // actions
         logInButton.setOnAction(e -> handleLogIn());
         signUpButton.setOnAction(e -> handleSignUp());
@@ -115,30 +123,25 @@ public class LoginController {
     private void updatePasswordCriteria(String pw) {
         boolean lenOk = pw.length() >= 10 && pw.length() <= 20;
         boolean upperOk = pw.matches(".*[A-Z].*");
-        boolean lowerOk = pw.matches(".*[a-z].*");
         boolean digitOk = pw.matches(".*\\d.*");
-        boolean specialOk = pw.matches(".*[^A-Za-z0-9].*");
 
-        setCriterion(critLen,    "10-20 characters",    lenOk);
-        setCriterion(critUpper,  "1 uppercase (A-Z)",   upperOk);
-        setCriterion(critLower,  "1 lowercase (a-z)",   lowerOk);
-        setCriterion(critDigit,  "1 number",            digitOk);
-        setCriterion(critSpecial,"1 non-alphanumeric",  specialOk);
+        setCriterion(critLen,   "10-20 characters",  lenOk);
+        setCriterion(critUpper, "1 uppercase (A-Z)", upperOk);
+        setCriterion(critDigit, "1 number",          digitOk);
     }
 
     private boolean isPasswordValid(String pw) {
         return pw != null
                 && pw.length() >= 10 && pw.length() <= 20
                 && pw.matches(".*[A-Z].*")
-                && pw.matches(".*[a-z].*")
-                && pw.matches(".*\\d.*")
-                && pw.matches(".*[^A-Za-z0-9].*");
+                && pw.matches(".*\\d.*");
     }
 
     private boolean isEmailValid(String email) {
         if (email == null) return false;
         String trimmed = email.trim();
-        return !trimmed.isEmpty() && trimmed.contains("@");
+        // Accept only specified providers with strictly lowercase domain and .com or .ca TLDs
+        return trimmed.matches("^[A-Za-z0-9._%+-]+@(gmail|yahoo|hotmail|outlook|live|icloud)\\.(com|ca)$");
     }
 
     private boolean isNotEmpty(String text) {
@@ -235,7 +238,8 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
             Stage stage = (Stage) fromNode.getScene().getWindow();
-            stage.setScene(new Scene(root));
+            // Keep a consistent window size across navigations
+            stage.setScene(new Scene(root, 929, 648));
             stage.setTitle(title);
             stage.show();
         } catch (IOException e) {
@@ -243,4 +247,5 @@ public class LoginController {
             showErrorAlert("Unable to open page.");
         }
     }
+
 }

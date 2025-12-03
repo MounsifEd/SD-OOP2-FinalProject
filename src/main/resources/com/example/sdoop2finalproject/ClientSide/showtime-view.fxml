@@ -36,7 +36,7 @@
                             </HBox.margin>
                         </Text>
 
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: blue;" text="LogOut" textFill="WHITE">
+                        <Button fx:id="logOutButton" onAction="#openLoginView" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: blue;" text="LogOut" textFill="WHITE">
                             <HBox.margin>
                                 <Insets left="40.0" top="15.0" />
                             </HBox.margin>
