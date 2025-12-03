@@ -52,17 +52,9 @@
                   </Button>
                         <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#openLoginView" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: blue;" text="LogOut" textFill="WHITE">
                             <HBox.margin>
-                                <Insets left="150.0" top="10.0" />
+                                <Insets left="150.0" right="30.0" top="10.0" />
                             </HBox.margin>
                         </Button>
-                        <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../img/Logo.png" />
-                            </image>
-                            <HBox.margin>
-                                <Insets left="5.0" right="20.0" top="5.0" />
-                            </HBox.margin>
-                        </ImageView>
 
 
                     </children>

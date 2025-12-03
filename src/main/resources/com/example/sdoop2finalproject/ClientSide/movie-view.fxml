@@ -51,14 +51,6 @@
                                 <Insets left="150.0" top="10.0" />
                             </HBox.margin>
                         </Button>
-                  <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/Logo.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" top="5.0" />
-                     </HBox.margin>
-                  </ImageView>
 
 
                     </children>
