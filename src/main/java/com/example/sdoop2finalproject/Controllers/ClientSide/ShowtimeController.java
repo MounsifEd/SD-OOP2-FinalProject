@@ -5,11 +5,14 @@ import com.example.sdoop2finalproject.Models.Showtimes.MovieShow;
 import com.example.sdoop2finalproject.Models.Showtimes.ShowtimeData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -87,5 +90,40 @@ public class ShowtimeController {
         // Get the current window and close it
         Stage stage = (Stage) showtimeBackButton.getScene().getWindow();
         stage.close();
+    }
+
+    /**
+     * Log out: open login view and close showtime + any other windows (e.g., Movie window).
+     */
+    @FXML
+    public void openLoginView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sdoop2finalproject/login-view.fxml"));
+            Parent root = loader.load();
+
+            // Open login in a new Stage
+            Stage loginStage = new Stage();
+            loginStage.setScene(new Scene(root, 929, 648));
+            loginStage.setTitle("Log In");
+            loginStage.show();
+
+            // Explicitly close the current showtime window
+            Stage currentShowtime = (Stage) showtimeFlow.getScene().getWindow();
+            if (currentShowtime != null && currentShowtime != loginStage) {
+                currentShowtime.close();
+            }
+
+            // Close any other open windows except the new login window
+            for (Window w : Window.getWindows()) {
+                if (w instanceof Stage) {
+                    Stage s = (Stage) w;
+                    if (s != loginStage) {
+                        s.close();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to load login view", e);
+        }
     }
 }

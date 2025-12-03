@@ -105,4 +105,22 @@ public class ManagerController {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * Simple handler to return to the login view.
+     * Reuses the current window with a fixed size.
+     */
+    @FXML
+    public void openLoginView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sdoop2finalproject/login-view.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) movieManagerFlowPane.getScene().getWindow();
+            stage.setScene(new Scene(root, 929, 648));
+            stage.setTitle("Log In");
+            stage.show();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
