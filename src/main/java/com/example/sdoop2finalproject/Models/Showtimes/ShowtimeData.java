@@ -4,6 +4,8 @@ import com.example.sdoop2finalproject.Models.Movie.Movie;
 import com.example.sdoop2finalproject.Models.Movie.MovieData;
 import javafx.collections.FXCollections;
 
+import java.time.LocalDate;
+
 /**
  * Has all showtimes using the Singleton pattern.
  * Creates and stores a single instance.
@@ -42,6 +44,7 @@ public class ShowtimeData {
         return aShowCollection;
     }
 
+
     /**
      * Loads sample movie only for testing purposes.
      */
@@ -50,9 +53,9 @@ public class ShowtimeData {
         Movie avatar = MovieData.getInstance().getMovies().findByID(1);
         Movie interstellar = MovieData.getInstance().getMovies().findByID(2);
 
-        aShowCollection.addShow(new MovieShow(1, "18:00", "2025-11-24", 1, avatar));
-        aShowCollection.addShow(new MovieShow(2, "21:00", "2025-11-24", 4, avatar));
-        aShowCollection.addShow(new MovieShow(3, "20:15", "2025-11-25", 2, interstellar));
+        aShowCollection.addShow(new MovieShow(1, "18:00", "2025-12-20", 1, avatar));
+        aShowCollection.addShow(new MovieShow(2, "21:00", "2025-12-21", 4, avatar));
+        aShowCollection.addShow(new MovieShow(3, "20:15", "2025-12-22", 2, interstellar));
     }
 
     /**
