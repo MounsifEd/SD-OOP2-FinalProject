@@ -92,8 +92,7 @@ public class MovieRoom {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof MovieRoom)) return false;
-        MovieRoom other = (MovieRoom) obj;
+        if (!(obj instanceof MovieRoom other)) return false;
         return aRoomID == other.aRoomID;
     }
 

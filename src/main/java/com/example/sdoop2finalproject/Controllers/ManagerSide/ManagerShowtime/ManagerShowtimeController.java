@@ -34,8 +34,8 @@ public class ManagerShowtimeController {
      */
     @FXML
     public void initialize() {
-        addShowtime.setOnAction(e -> openAddShowtimeView());
-        showtimeBackButton.setOnAction(e -> closeShowtimeView());
+        addShowtime.setOnAction(_ -> openAddShowtimeView());
+        showtimeBackButton.setOnAction(_ -> closeShowtimeView());
     }
 
     /**
@@ -58,7 +58,7 @@ public class ManagerShowtimeController {
 
                 managerShowtimeFlow.getChildren().add(card);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println("Failed to load: " + e.getMessage());
             }
         }
     }
@@ -83,12 +83,12 @@ public class ManagerShowtimeController {
             stage.setTitle("Add Showtime");
             stage.setScene(new Scene(root));
 
-            stage.setOnHidden(e -> loadShowtimes(aMovie));
+            stage.setOnHidden(_ -> loadShowtimes(aMovie));
 
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Failed to load: " + e.getMessage());
         }
     }
 

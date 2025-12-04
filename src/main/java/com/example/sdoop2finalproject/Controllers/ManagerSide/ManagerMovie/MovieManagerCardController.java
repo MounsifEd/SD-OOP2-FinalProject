@@ -1,6 +1,5 @@
 package com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerMovie;
 
-import com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowRoom.EditRoomController;
 import com.example.sdoop2finalproject.Controllers.ManagerSide.ManagerShowtime.ManagerShowtimeController;
 import com.example.sdoop2finalproject.Models.Movie.Movie;
 import com.example.sdoop2finalproject.Models.Movie.MovieData;
@@ -60,9 +59,9 @@ public class MovieManagerCardController {
      *Groups all the button actions that need to be set.
      */
     private void setButtonActions() {
-        removeManagerButton.setOnAction(e -> removeMovieCard());
-        showtimeManagerButton.setOnAction(e -> openManagerShowtimeView());
-        editManagerButton.setOnAction(event -> editMovieCard());
+        removeManagerButton.setOnAction(_ -> removeMovieCard());
+        showtimeManagerButton.setOnAction(_ -> openManagerShowtimeView());
+        editManagerButton.setOnAction(_ -> editMovieCard());
     }
 
     /**
@@ -98,8 +97,8 @@ public class MovieManagerCardController {
             stage.setScene(new Scene(root));
             stage.setTitle("Showtimes for: " + aMovie.getaMovieName());
             stage.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Failed to load: " + e.getMessage());
         }
     }
 

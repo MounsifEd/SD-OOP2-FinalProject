@@ -66,7 +66,7 @@ public class AddShowtimeController {
         if (date.isEmpty() || time.isEmpty() || room == null) {
             showError("Please fill out all fields");
             return;
-        };
+        }
 
         if (!isValidDate(date)){
             showError("The date cannot be in the past or please enter a valid date.(YYYY-MM-DD)");

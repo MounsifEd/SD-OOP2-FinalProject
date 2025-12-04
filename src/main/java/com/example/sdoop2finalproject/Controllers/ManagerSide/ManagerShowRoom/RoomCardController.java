@@ -49,8 +49,8 @@ public class RoomCardController {
      * Sets up event handlers for the edit and delete buttons.
      */
     public void initialize() {
-        removeRoomButton.setOnAction(e -> deleteRoom());
-        editRoomButton.setOnAction(e -> editRoom());
+        removeRoomButton.setOnAction(_ -> deleteRoom());
+        editRoomButton.setOnAction(_ -> editRoom());
     }
 
     /**
@@ -115,7 +115,6 @@ public class RoomCardController {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/com/example/sdoop2finalproject/ManagerRoom/edit-room.fxml")
             );
-
             Parent root = loader.load();
 
             // Get the controller and configure it
