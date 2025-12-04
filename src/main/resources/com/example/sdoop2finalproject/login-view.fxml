@@ -34,8 +34,8 @@
         </HBox>
 
         <!-- Email Field -->
-        <Label text="Email* Or Username*" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
-        <TextField fx:id="emailField" promptText="Enter Email* Or Username*" prefHeight="40.0" style="-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;" />
+        <Label text="Email*" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+        <TextField fx:id="emailField" promptText="Enter Email*" prefHeight="40.0" style="-fx-font-size: 13px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 1;" />
 
         <!-- Password Field -->
         <Label text="Password*" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
@@ -85,9 +85,7 @@
         <VBox spacing="8.0" style="-fx-padding: 10px; -fx-background-color: #eeeeee; -fx-border-radius: 5;">
             <Label fx:id="critLen" text="10-20 characters" style="-fx-font-size: 12px; -fx-text-fill: #666666;" />
             <Label fx:id="critUpper" text="1 uppercase (A-Z)" style="-fx-font-size: 12px; -fx-text-fill: #666666;" />
-            <Label fx:id="critLower" text="1 lowercase (a-z)" style="-fx-font-size: 12px; -fx-text-fill: #666666;" />
             <Label fx:id="critDigit" text="1 number" style="-fx-font-size: 12px; -fx-text-fill: #666666;" />
-            <Label fx:id="critSpecial" text="1 non-alphanumeric" style="-fx-font-size: 12px; -fx-text-fill: #666666;" />
         </VBox>
 
         <!-- Newsletter Checkbox -->
