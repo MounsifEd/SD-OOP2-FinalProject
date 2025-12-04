@@ -31,7 +31,7 @@ public class ShowRoomController {
     @FXML
     public void initialize() {
         loadRooms();
-        addRoomButton.setOnAction(e -> openAddRoomView());
+        addRoomButton.setOnAction(_ -> openAddRoomView());
     }
 
     /**
@@ -54,7 +54,7 @@ public class ShowRoomController {
                 roomFlowPane.getChildren().add(card);
 
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println("Failed to load: " + e.getMessage());
             }
         }
     }
@@ -69,10 +69,10 @@ public class ShowRoomController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sdoop2finalproject/ManagerRoom/add-room.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
-            stage.setOnHidden(e -> loadRooms());
+            stage.setOnHidden(_ -> loadRooms());
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Failed to load: " + e.getMessage());
         }
     }
 }

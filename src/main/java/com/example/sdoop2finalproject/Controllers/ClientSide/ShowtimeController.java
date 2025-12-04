@@ -38,10 +38,6 @@ public class ShowtimeController {
      */
     @FXML
     private Button showtimeBackButton;
-    /**
-     * The movie that the showtime is currently displaying.
-     */
-    private Movie aMovie;
 
     /**
      * This method gives the action to the Back button, so clicking it
@@ -49,7 +45,7 @@ public class ShowtimeController {
      */
     @FXML
     private void initialize() {
-        showtimeBackButton.setOnAction(e ->goBack());
+        showtimeBackButton.setOnAction(_ ->goBack());
     }
 
     /**
@@ -57,8 +53,6 @@ public class ShowtimeController {
      * @param pMovie for which showtimes will be shown.
      */
     public void loadShowtimes(Movie pMovie) {
-
-        this.aMovie = pMovie;
 
         showtimeTitle.setText(pMovie.getaMovieName());
 

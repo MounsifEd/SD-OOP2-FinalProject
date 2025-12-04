@@ -38,10 +38,10 @@ public class ManagerController {
     @FXML
     public void initialize() {
         loadMovies();
-        addMovieButton.setOnAction(e -> openAddMovieView());
-        showRoomManagerButton.setOnAction(e -> openRoomView());
+        addMovieButton.setOnAction(_ -> openAddMovieView());
+        showRoomManagerButton.setOnAction(_ -> openRoomView());
         if (ticketSaleButton != null) {
-            ticketSaleButton.setOnAction(e -> openTicketSalesView());
+            ticketSaleButton.setOnAction(_ -> openTicketSalesView());
         }
     }
 
@@ -65,7 +65,7 @@ public class ManagerController {
                 movieManagerFlowPane.getChildren().add(card);
 
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println("Failed to load: " + e.getMessage());
             }
         }
     }
@@ -85,12 +85,12 @@ public class ManagerController {
             stage.setScene(new Scene(loader.load()));
             stage.setTitle("Add New Movie");
 
-            stage.setOnHidden(e -> loadMovies());
+            stage.setOnHidden(_ -> loadMovies());
 
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Failed to load: " + e.getMessage());
         }
     }
 
@@ -107,8 +107,8 @@ public class ManagerController {
             stage.setTitle("Cinema Rooms");
             stage.show();
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Failed to load: " + e.getMessage());
         }
     }
 
