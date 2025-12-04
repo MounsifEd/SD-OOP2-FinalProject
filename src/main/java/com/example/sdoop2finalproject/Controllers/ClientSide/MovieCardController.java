@@ -53,7 +53,7 @@ public class MovieCardController {
         movieTitle.setText(pMovie.getaMovieName());
         movieGenre.setText("Genre: " + pMovie.getaMovieGenre());
         movieRelease.setText("Release: " + pMovie.getaReleaseDate());
-        showtimeBtn.setOnAction(e -> openShowtimePage());
+        showtimeBtn.setOnAction(_ -> openShowtimePage());
     }
 
     /**
@@ -73,8 +73,8 @@ public class MovieCardController {
             stage.setTitle(aMovie.getaMovieName() + " Showtimes");
             stage.show();
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Failed to load: " + e.getMessage());
         }
     }
 }

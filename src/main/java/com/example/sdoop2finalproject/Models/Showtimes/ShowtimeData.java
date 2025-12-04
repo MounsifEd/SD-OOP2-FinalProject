@@ -4,8 +4,6 @@ import com.example.sdoop2finalproject.Models.Movie.Movie;
 import com.example.sdoop2finalproject.Models.Movie.MovieData;
 import javafx.collections.FXCollections;
 
-import java.time.LocalDate;
-
 /**
  * Has all showtimes using the Singleton pattern.
  * Creates and stores a single instance.

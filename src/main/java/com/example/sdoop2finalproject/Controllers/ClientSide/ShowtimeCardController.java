@@ -42,7 +42,7 @@ public class ShowtimeCardController {
         timeText.setText(pShow.getAshowTime());
         roomText.setText("Room " + pShow.getRoomID());
 
-        selectBtn.setOnAction(e -> showUnavailablePaymentAlert());
+        selectBtn.setOnAction(_ -> showUnavailablePaymentAlert());
     }
 
     private void showUnavailablePaymentAlert() {

@@ -44,8 +44,8 @@ public class ManagerShowtimeCardController {
      */
     @FXML
     public void initialize() {
-        showtimeRemove.setOnAction(e -> deleteShowtime());
-        showtimeEdit.setOnAction(e -> editShowtime());
+        showtimeRemove.setOnAction(_ -> deleteShowtime());
+        showtimeEdit.setOnAction(_ -> editShowtime());
     }
 
     /**
